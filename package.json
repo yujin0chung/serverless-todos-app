@@ -1,0 +1,7 @@
+{
+  "name": "serverless-app",
+  "private": true,
+  "dependencies": {
+    "uuid": "^8.3.1"
+  }
+}
