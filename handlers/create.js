@@ -21,6 +21,9 @@ module.exports.run = async (event) => {
     };
   } catch (err) {
     console.log("Error occurred creating todo: ", err);
-    throw err;
+    return {
+      statusCode: err.statusCode || 501,
+      body: JSON.stringify({ message: err.message }),
+    };
   }
 };

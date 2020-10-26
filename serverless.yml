@@ -8,16 +8,25 @@ provider:
     - Effect: Allow
       Action:
         - dynamodb:PutItem
+        - dynamodb:GetItem
       Resource: "arn:aws:dynamodb:us-west-1:641240258309:table/todos"
 
 functions:
+  getTodo:
+    handler: handlers/get.run
+    events:
+      - http:
+          path: todos/{id}
+          method: get
+      - cloudwatchLog:
+          logGroup: "/aws/lambda/getTodo"
   createTodo:
-    handler: create.run
+    handler: handlers/create.run
     events:
       - http:
           path: todos
           method: post
-        cloudwatchLog:
+      - cloudwatchLog:
           logGroup: "/aws/lambda/createTodo"
 
 resources:
