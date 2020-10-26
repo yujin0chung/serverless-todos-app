@@ -17,6 +17,8 @@ functions:
       - http:
           path: todos
           method: post
+        cloudwatchLog:
+          logGroup: "/aws/lambda/createTodo"
 
 resources:
   Resources:
