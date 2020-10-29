@@ -9,14 +9,14 @@ module.exports.run = async (event) => {
     },
   };
   try {
-    const result = await client.get(params).promise();
+    await client.delete(params).promise();
     return {
       statusCode: 200,
-      body: JSON.stringify(result.Item),
     };
   } catch (err) {
+    console.log("Error occurred creating todo: ", err);
     return {
-      statusCode: err.statusCode || 404,
+      statusCode: err.statusCode || 501,
       body: JSON.stringify({ message: err.message }),
     };
   }

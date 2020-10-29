@@ -7,16 +7,22 @@ module.exports.run = async (event) => {
     Key: {
       id: event.pathParameters.id,
     },
+    UpdateExpression: "set checked = checked + :val",
+    ExpressionAttributeValues: {
+      ":val": 1,
+    },
+    ReturnValues: "UPDATED_NEW",
   };
   try {
-    const result = await client.get(params).promise();
+    const result = await client.update(params).promise();
     return {
       statusCode: 200,
       body: JSON.stringify(result.Item),
     };
   } catch (err) {
+    console.log("Error occurred updating todo: ", err);
     return {
-      statusCode: err.statusCode || 404,
+      statusCode: err.statusCode || 501,
       body: JSON.stringify({ message: err.message }),
     };
   }
