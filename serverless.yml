@@ -23,7 +23,7 @@ functions:
           method: get
           cors: true
       - cloudwatchLog:
-          logGroup: "/aws/lambda/getTodo"
+          logGroup: "/aws/lambda/get-todo"
   createTodo:
     handler: handlers/create.run
     events:
@@ -32,7 +32,7 @@ functions:
           method: post
           cors: true
       - cloudwatchLog:
-          logGroup: "/aws/lambda/createTodo"
+          logGroup: "/aws/lambda/create-todo"
   updateTodoStatus:
     handler: handlers/update.run
     events:
@@ -41,7 +41,7 @@ functions:
           method: put
           cors: true
       - cloudwatchLog:
-          logGroup: "/aws/lambda/updateTodo"
+          logGroup: "/aws/lambda/update-todo"
   deleteTodo:
     handler: handlers/delete.run
     events:
@@ -50,7 +50,7 @@ functions:
           method: delete
           cors: true
       - cloudwatchLog:
-          logGroup: "/aws/lambda/deleteTodo"
+          logGroup: "/aws/lambda/delete-todo"
   list:
     handler: handlers/list.run
     events:

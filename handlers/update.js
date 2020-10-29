@@ -20,7 +20,6 @@ module.exports.run = async (event) => {
       body: JSON.stringify(result.Item),
     };
   } catch (err) {
-    console.log("Error occurred updating todo: ", err);
     return {
       statusCode: err.statusCode || 501,
       body: JSON.stringify({ message: err.message }),
