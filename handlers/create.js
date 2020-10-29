@@ -9,7 +9,7 @@ module.exports.run = async (event) => {
     Item: {
       id: uuidv4(),
       text: data.text,
-      checked: false,
+      checked: 0,
     },
   };
   try {
